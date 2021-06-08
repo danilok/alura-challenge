@@ -70,10 +70,20 @@
   position: relative;
 }
 
+.conteudo__editor-wc {
+  background: #141414;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  /* padding: 1rem; */
+  /* border-radius: 0.5rem; */
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
 .conteudo__editor {
   background: #141414;
   border: none;
-  border-radius: 0.5rem;
+  /* border-radius: 0.5rem; */
   height: 270px;
   width: 100%;
   padding: 1rem;
@@ -81,6 +91,9 @@
   box-sizing: border-box;
   outline: none;
   box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.24);
+  resize: none;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
 
 .conteudo__highlight-container {

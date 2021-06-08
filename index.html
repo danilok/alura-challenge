@@ -16,7 +16,6 @@
 
 <body>
   <header class="cabecalho container">
-    <!-- <div class="cabecalho__desktop"> -->
     <div class="cabecalho__logo">
       <img src="assets/img/logo-plataforma.png" class="cabecalho__imagem" alt="Logo da AluraDev">
     </div>
@@ -37,25 +36,32 @@
         <span class="cabecalho__nome">Challenger</span>
       </a>
     </div>
-    <!-- </div> -->
   </header>
   <main class="conteudo container">
     <section class="conteudo__menu-esquerdo">
       <h2 class="conteudo__titulo">Menu</h2>
       <ul class="conteudo__nav">
         <li class="conteudo__nav-link ">
-          <!-- uses solid style -->
           <a href="#"><span class="conteudo__nav-icone conteudo__nav-icone--ativo"><i class="fas fa-code"></i></span>
             Editor de código</a>
         </li>
         <li class="conteudo__nav-link">
-          <i class="fas fa-users conteudo__nav-icone"></i> <!-- uses solid style -->
+          <i class="fas fa-users conteudo__nav-icone"></i>
           <a href="#">Comunidade</a>
         </li>
       </ul>
     </section>
     <section class="conteudo__codigo">
       <div class="conteudo__codigo-container">
+        <div class="conteudo__editor-wc">
+          <svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14">
+            <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+              <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
+              <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
+              <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
+            </g>
+          </svg>
+        </div>
         <textarea name="editor" class="conteudo__editor">
 const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj)
 
