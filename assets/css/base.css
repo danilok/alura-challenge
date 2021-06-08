@@ -1,0 +1,44 @@
+body {
+  background-color: #051d3b;
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ffffff;
+
+  opacity: 0.64;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #ffffff;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #ffffff;
+}
+
+.input-padrao {
+  background: rgba(255, 255, 255, 0.16);
+  border: none;
+  border-radius: 0.5rem;
+  height: 3.5rem;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0 14px;
+  color: #fefefe;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+  }
+}

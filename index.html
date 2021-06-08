@@ -1,15 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AluraDev</title>
-  <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/base.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/fontawesome/css/all.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  
+  <header class="cabecalho container">
+    <!-- <div class="cabecalho__desktop"> -->
+    <div class="cabecalho__logo">
+      <img src="assets/img/logo-plataforma.png" class="cabecalho__imagem" alt="Logo da AluraDev">
+    </div>
+    <div class="cabecalho__busca">
+      <input type="text" name="Busca" class="cabecalho__pesquisa" placeholder="Busque por algo">
+    </div>
+    <!-- <a href="#" class="cabecalho__usuario">
+      <img src="https://picsum.photos/32" class="cabecalho__avatar">
+      <span class="cabecalho__nome">Challenger</span>
+    </a> -->
+    <div class="cabecalho__opt">
+      <ul class="cabecalho__nav">
+        <li class="cabecalho__nav-link cabecalho__nav-busca">
+          <!-- uses solid style -->
+          <span class="conteudo__nav-icone"><i class="fas fa-search"></i></span>
+        </li>
+        <li class="cabecalho__nav-link">
+          <span class="conteudo__nav-icone"><i class="fas fa-bars"></i></span>
+        </li>
+      </ul>
+    </div>
+    <!-- </div> -->
+  </header>
+  <main class="conteudo container">
+    <section class="conteudo__menu-esquerdo">
+      <h2 class="conteudo__titulo">Menu</h2>
+      <ul class="conteudo__nav">
+        <li class="conteudo__nav-link ">
+          <!-- uses solid style -->
+          <a href="#"><span class="conteudo__nav-icone conteudo__nav-icone--ativo"><i class="fas fa-code"></i></span>
+            Editor de código</a>
+        </li>
+        <li class="conteudo__nav-link">
+          <i class="fas fa-users conteudo__nav-icone"></i> <!-- uses solid style -->
+          <a href="#">Comunidade</a>
+        </li>
+      </ul>
+    </section>
+    <section class="conteudo__codigo">
+      <div class="conteudo__codigo-container">
+        <textarea name="editor" class="conteudo__editor">
+const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj)
+
+const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res)
+
+const unfold = (f, seed) => {
+  const go = (f, seed, acc) => {
+    const res = f(seed)
+    return res ? go(f, res[1], acc.concat([res[0]])) : acc
+  }
+  return go(f, seed, [])
+}
+        </textarea>
+      </div>
+      <div class="conteudo__highlight-container">
+        <input type="button" class="conteudo__highlight input-padrao" value="Visualizar com highlight">
+      </div>
+    </section>
+    <section class="conteudo__configuracoes">
+      <div class="conteudo__projeto">
+        <h2 class="conteudo__titulo">Seu projeto</h2>
+        <input type="text" name="projeto" class="conteudo__projeto-nome input-padrao" placeholder="Nome do seu projeto">
+        <textarea name="descricao" class="conteudo__projeto-descricao input-padrao"
+          placeholder="Descrição do seu projeto"></textarea>
+      </div>
+      <div class="conteudo__personalizacao">
+        <h2 class="conteudo__titulo">Personalização</h2>
+        <div class="conteudo__personalizacao-dados">
+          <div class="conteudo__linguagem">
+            <input list="linguagens" class="conteudo__projeto-linguagem input-padrao" name="linguagem">
+            <datalist id="linguagens" class="conteudo__linguagens">
+              <option value="Javascript"></option>
+              <option value="HTML"></option>
+              <option value="CSS"></option>
+            </datalist>
+          </div>
+          <div class="conteudo__cor">
+            <input type="color" class="conteudo__projeto-cor input-padrao" name="cor-fundo" value="#6BD1FF">
+          </div>
+        </div>
+      </div>
+      <div class="conteudo__salvar-container">
+        <input type="button" class="conteudo__salvar input-padrao" value="Salvar projeto">
+      </div>
+    </section>
+  </main>
+  <script>
+    // Dealing with Textarea Height
+      function calcHeight(value) {
+        let numberOfLineBreaks = (value.match(/\n/g) || []).length;
+        // min-height + lines x line-height + padding + border
+        let newHeight = 20 + numberOfLineBreaks * 20 + 12 + 2 + 10;
+        return newHeight;
+      }
+
+      let textarea = document.querySelector(".conteudo__editor");
+      textarea.addEventListener("keyup", () => {
+        textarea.style.height = calcHeight(textarea.value) + "px";
+      });
+  </script>
 </body>
+
 </html>
