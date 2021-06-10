@@ -12,23 +12,26 @@
   <link rel="stylesheet" href="./assets/fontawesome/css/all.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/base16/dracula.min.css"
+    integrity="sha512-oDvVpANXrKQ6R5B25VO6DooEQWA7jUXleyD6oUWHChC0fjv8wAANSX7lKXtp5D6HbZ7EUxd0wjMibtpCQ+aCDw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
   <header class="cabecalho container">
     <div class="cabecalho__logo">
-      <img src="assets/img/logo-plataforma.png" class="cabecalho__imagem" alt="Logo da AluraDev">
+      <a href="index.html"><img src="assets/img/logo-plataforma.png" class="cabecalho__imagem" alt="Logo da AluraDev"></a>
     </div>
     <div class="cabecalho__busca">
       <input type="text" name="Busca" class="cabecalho__pesquisa" placeholder="Busque por algo">
     </div>
     <div class="cabecalho__opt">
       <ul class="cabecalho__nav">
-        <li class="cabecalho__nav-link cabecalho__nav-busca">
-          <span class="conteudo__nav-icone"><i class="fas fa-search"></i></span>
+        <li class="cabecalho__nav-link cabecalho__nav-busca" onclick="mostrarBusca()">
+          <span class="cabecalho__nav-botao"><i class="fas fa-search"></i></span>
         </li>
-        <li class="cabecalho__nav-link">
-          <span class="conteudo__nav-icone"><i class="fas fa-bars"></i></span>
+        <li class="cabecalho__nav-link" onclick="mostrarMenuNav()">
+          <span id="spanMenu" class="cabecalho__nav-botao"><i id="iconeMenu" class="fas fa-bars"></i></span>
         </li>
       </ul>
       <a href="#" class="cabecalho__usuario">
@@ -36,24 +39,39 @@
         <span class="cabecalho__nome">Challenger</span>
       </a>
     </div>
+    <div class="cabecalho__nav-menu">
+      <div class="cabecalho__nav-conteudo">
+        <ul class="cabecalho__nav-lista">
+          <li class="cabecalho__nav-opt">
+            <a href="index.html"><i class="fas fa-code cabecalho__nav-icone cabecalho__nav-icone--ativo"></i> Editor de código</a>
+          </li>
+          <li class="cabecalho__nav-opt">
+            <a href="comunidade.html"><i class="fas fa-users cabecalho__nav-icone"></i>
+              Comunidade</a>
+          </li>
+        </ul>
+        <a href="#" class="cabecalho__nav-usuario">
+          <img src="https://picsum.photos/32" class="cabecalho__avatar">
+          <span class="cabecalho__nome">Challenger</span>
+        </a>
+      </div>
+    </div>
   </header>
   <main class="conteudo container">
     <section class="conteudo__menu-esquerdo">
       <h2 class="conteudo__titulo">Menu</h2>
       <ul class="conteudo__nav">
-        <li class="conteudo__nav-link ">
-          <a href="#"><span class="conteudo__nav-icone conteudo__nav-icone--ativo"><i class="fas fa-code"></i></span>
-            Editor de código</a>
+        <li class="conteudo__nav-link">
+          <a href="index.html"><i class="fas fa-code conteudo__nav-icone conteudo__nav-icone--ativo"></i> Editor de código</a>
         </li>
         <li class="conteudo__nav-link">
-          <i class="fas fa-users conteudo__nav-icone"></i>
-          <a href="#">Comunidade</a>
+          <a href="comunidade.html"><i class="fas fa-users conteudo__nav-icone"></i> Comunidade</a>
         </li>
       </ul>
     </section>
     <section class="conteudo__codigo">
       <div class="conteudo__codigo-container">
-        <div class="conteudo__editor-wc">
+        <div class="conteudo__editor-wc hljs">
           <svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14">
             <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
               <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
@@ -62,8 +80,8 @@
             </g>
           </svg>
         </div>
-        <textarea name="editor" class="conteudo__editor">
-const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj)
+         <div class="conteudo__editor hljs">
+            <code class="preview hljs" contenteditable="true">const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj)
 
 const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res)
 
@@ -74,10 +92,11 @@ const unfold = (f, seed) => {
   }
   return go(f, seed, [])
 }
-        </textarea>
+            </code>
+        </div>
       </div>
       <div class="conteudo__highlight-container">
-        <input type="button" class="conteudo__highlight input-padrao" value="Visualizar com highlight">
+        <input type="button" class="conteudo__highlight input-padrao" value="Visualizar com highlight" onclick="aplicarHighlight()">
       </div>
     </section>
     <section class="conteudo__configuracoes">
@@ -91,15 +110,14 @@ const unfold = (f, seed) => {
         <h2 class="conteudo__titulo">Personalização</h2>
         <div class="conteudo__personalizacao-dados">
           <div class="conteudo__linguagem">
-            <input list="linguagens" class="conteudo__projeto-linguagem input-padrao" name="linguagem">
-            <datalist id="linguagens" class="conteudo__linguagens">
-              <option value="Javascript"></option>
-              <option value="HTML"></option>
-              <option value="CSS"></option>
-            </datalist>
+            <select id="linguagens" class="conteudo__projeto-linguagem" name="linguagem">
+              <option value="javascript">Javascript</option>
+              <option value="html">HTML</option>
+              <option value="css">CSS</option>
+            </select>
           </div>
           <div class="conteudo__cor">
-            <input type="color" class="conteudo__projeto-cor input-padrao" name="cor-fundo" value="#6BD1FF">
+            <input id="cor" type="color" class="conteudo__projeto-cor input-padrao" name="cor-fundo" value="#6BD1FF" onchange="mudarCorBorda()">
           </div>
         </div>
       </div>
@@ -108,20 +126,8 @@ const unfold = (f, seed) => {
       </div>
     </section>
   </main>
-  <script>
-    // Dealing with Textarea Height
-      function calcHeight(value) {
-        let numberOfLineBreaks = (value.match(/\n/g) || []).length;
-        // min-height + lines x line-height + padding + border
-        let newHeight = 20 + numberOfLineBreaks * 20 + 12 + 2 + 10;
-        return newHeight;
-      }
-
-      let textarea = document.querySelector(".conteudo__editor");
-      textarea.addEventListener("keyup", () => {
-        textarea.style.height = calcHeight(textarea.value) + "px";
-      });
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AluraDev</title>
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/base.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/fontawesome/css/all.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="cabecalho container">
+    <div class="cabecalho__logo">
+      <a href="index.html"><img src="assets/img/logo-plataforma.png" class="cabecalho__imagem" alt="Logo da AluraDev"></a>
+    </div>
+    <div class="cabecalho__busca">
+      <input type="text" name="Busca" class="cabecalho__pesquisa" placeholder="Busque por algo">
+    </div>
+    <div class="cabecalho__opt">
+      <ul class="cabecalho__nav">
+        <li class="cabecalho__nav-link cabecalho__nav-busca" onclick="mostrarBusca()">
+          <span class="cabecalho__nav-botao"><i class="fas fa-search"></i></span>
+        </li>
+        <li class="cabecalho__nav-link" onclick="mostrarMenuNav()">
+          <span id="spanMenu" class="cabecalho__nav-botao"><i id="iconeMenu" class="fas fa-bars"></i></span>
+        </li>
+      </ul>
+      <a href="#" class="cabecalho__usuario">
+        <img src="https://picsum.photos/32" class="cabecalho__avatar">
+        <span class="cabecalho__nome">Challenger</span>
+      </a>
+    </div>
+    <div class="cabecalho__nav-menu">
+      <div class="cabecalho__nav-conteudo">
+        <ul class="cabecalho__nav-lista">
+          <li class="cabecalho__nav-opt">
+            <a href="index.html"><i class="fas fa-code cabecalho__nav-icone"></i> Editor de
+              código</a>
+          </li>
+          <li class="cabecalho__nav-opt">
+            <a href="comunidade.html"><i class="fas fa-users cabecalho__nav-icone cabecalho__nav-icone--ativo"></i>
+              Comunidade</a>
+          </li>
+        </ul>
+        <a href="#" class="cabecalho__nav-usuario">
+          <img src="https://picsum.photos/32" class="cabecalho__avatar">
+          <span class="cabecalho__nome">Challenger</span>
+        </a>
+      </div>
+    </div>
+  </header>
+  <main class="conteudo container">
+    <section class="conteudo__menu-esquerdo">
+      <h2 class="conteudo__titulo">Menu</h2>
+      <ul class="conteudo__nav">
+        <li class="conteudo__nav-link">
+          <a href="index.html"><i class="fas fa-code conteudo__nav-icone"></i> Editor de código</a>
+        </li>
+        <li class="conteudo__nav-link">
+          <a href="comunidade.html"><i class="fas fa-users conteudo__nav-icone conteudo__nav-icone--ativo"></i> Comunidade</a>
+        </li>
+      </ul>
+    </section>
+    <section class="conteudo__comunidade">
+      <div class="conteudo__item">
+        <div class="conteudo__comunidade-container" onclick="mostarCodigo()">
+          <div class="conteudo__editor-wc">
+            <svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14">
+              <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+                <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
+                <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
+                <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
+              </g>
+            </svg>
+          </div>
+          <textarea disabled name="editor" class="conteudo__comunidade-editor">
+const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj)
+
+const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res)
+
+const unfold = (f, seed) => {
+  const go = (f, seed, acc) => {
+    const res = f(seed)
+    return res ? go(f, res[1], acc.concat([res[0]])) : acc
+  }
+  return go(f, seed, [])
+}
+          </textarea>
+        </div>
+        <div class="conteudo__card-container">
+          <h2 class="conteudo__card-titulo">Título do projeto</h2>
+          <p class="conteudo__card-descricao">Essa é a descrição do meu projeto</p>
+          <div class="conteudo__card-social">
+            <div class="conteudo__card-icones">
+              <div class="conteudo__card-comentario">
+                <span class="conteudo__card-icone"><i class="fas fa-comment"></i>0</span>
+              </div>
+              <div class="conteudo__card-favorito">
+                <span class="conteudo__card-icone"><i class="fas fa-heart"></i>0</span>
+              </div>
+            </div>
+            <div class="conteudo__card-usuario">
+              <img src="https://picsum.photos/32" class="conteudo__card-avatar">
+              <span class="conteudo__card-nome">Challenger</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="conteudo__item">
+        <div class="conteudo__comunidade-container" onclick="mostarCodigo()" style="background-color: #9AFF6B;">
+          <div class="conteudo__editor-wc">
+            <svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14">
+              <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+                <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
+                <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
+                <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
+              </g>
+            </svg>
+          </div>
+          <textarea disabled name="editor" class="conteudo__comunidade-editor">
+const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj)
+
+const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res)
+
+const unfold = (f, seed) => {
+  const go = (f, seed, acc) => {
+    const res = f(seed)
+    return res ? go(f, res[1], acc.concat([res[0]])) : acc
+  }
+  return go(f, seed, [])
+}
+                </textarea>
+        </div>
+        <div class="conteudo__card-container">
+          <h2 class="conteudo__card-titulo">Título do projeto</h2>
+          <p class="conteudo__card-descricao">Essa é a descrição do meu projeto</p>
+          <div class="conteudo__card-social">
+            <div class="conteudo__card-icones">
+              <div class="conteudo__card-comentario">
+                <span class="conteudo__card-icone"><i class="fas fa-comment"></i>0</span>
+              </div>
+              <div class="conteudo__card-favorito">
+                <span class="conteudo__card-icone"><i class="fas fa-heart"></i>0</span>
+              </div>
+            </div>
+            <div class="conteudo__card-usuario">
+              <img src="https://picsum.photos/32" class="conteudo__card-avatar">
+              <span class="conteudo__card-nome">Challenger</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="conteudo__item">
+        <div class="conteudo__comunidade-container" onclick="mostarCodigo()" style="background-color: #FFC46B;">
+          <div class="conteudo__editor-wc">
+            <svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14">
+              <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+                <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
+                <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
+                <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
+              </g>
+            </svg>
+          </div>
+          <textarea disabled name="editor" class="conteudo__comunidade-editor">
+const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj)
+
+const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res)
+
+const unfold = (f, seed) => {
+  const go = (f, seed, acc) => {
+    const res = f(seed)
+    return res ? go(f, res[1], acc.concat([res[0]])) : acc
+  }
+  return go(f, seed, [])
+}
+          </textarea>
+        </div>
+        <div class="conteudo__card-container">
+          <h2 class="conteudo__card-titulo">Título do projeto</h2>
+          <p class="conteudo__card-descricao">Essa é a descrição do meu projeto</p>
+          <div class="conteudo__card-social">
+            <div class="conteudo__card-icones">
+              <div class="conteudo__card-comentario">
+                <span class="conteudo__card-icone"><i class="fas fa-comment"></i>0</span>
+              </div>
+              <div class="conteudo__card-favorito">
+                <span class="conteudo__card-icone"><i class="fas fa-heart"></i>0</span>
+              </div>
+            </div>
+            <div class="conteudo__card-usuario">
+              <img src="https://picsum.photos/32" class="conteudo__card-avatar">
+              <span class="conteudo__card-nome">Challenger</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="conteudo__item">
+        <div class="conteudo__comunidade-container" onclick="mostarCodigo()" style="background-color: #FF6BCD;">
+          <div class="conteudo__editor-wc">
+            <svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14">
+              <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+                <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
+                <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
+                <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
+              </g>
+            </svg>
+          </div>
+          <textarea disabled name="editor" class="conteudo__comunidade-editor">
+const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj)
+
+const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res)
+
+const unfold = (f, seed) => {
+  const go = (f, seed, acc) => {
+    const res = f(seed)
+    return res ? go(f, res[1], acc.concat([res[0]])) : acc
+  }
+  return go(f, seed, [])
+}
+                            </textarea>
+        </div>
+        <div class="conteudo__card-container">
+          <h2 class="conteudo__card-titulo">Título do projeto</h2>
+          <p class="conteudo__card-descricao">Essa é a descrição do meu projeto</p>
+          <div class="conteudo__card-social">
+            <div class="conteudo__card-icones">
+              <div class="conteudo__card-comentario">
+                <span class="conteudo__card-icone"><i class="fas fa-comment"></i>0</span>
+              </div>
+              <div class="conteudo__card-favorito">
+                <span class="conteudo__card-icone"><i class="fas fa-heart"></i>0</span>
+              </div>
+            </div>
+            <div class="conteudo__card-usuario">
+              <img src="https://picsum.photos/32" class="conteudo__card-avatar">
+              <span class="conteudo__card-nome">Challenger</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
